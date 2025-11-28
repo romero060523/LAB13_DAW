@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// CORS ahora es manejado por el API Gateway
+// No es necesario @CrossOrigin aquí para evitar headers duplicados
 @RestController
 @RequestMapping("/api/categorias")
 public class CategoriaController {
