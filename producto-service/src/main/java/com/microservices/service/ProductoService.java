@@ -13,11 +13,15 @@ import java.util.Optional;
 @Service
 public class ProductoService {
 
-    @Autowired
-    private ProductoRepository productoRepository;
+    private final ProductoRepository productoRepository;
+    private final CategoriaClient categoriaClient;
 
+    // Constructor para inyección de dependencias (mejor práctica que @Autowired en campos)
     @Autowired
-    private CategoriaClient categoriaClient;
+    public ProductoService(ProductoRepository productoRepository, CategoriaClient categoriaClient) {
+        this.productoRepository = productoRepository;
+        this.categoriaClient = categoriaClient;
+    }
 
     // Obtener todos los productos
     public List<Producto> listarProductos() {
